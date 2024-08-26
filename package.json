@@ -1,0 +1,19 @@
+{
+  "name": "nekoweb-api-docs",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "dedent": "^1.5.3",
+    "directory-tree": "^3.5.2",
+    "http-status-codes": "^2.3.0",
+    "marked": "^14.1.0",
+    "oo-ascii-tree": "^1.102.0",
+    "serve": "^14.2.3"
+  }
+}
