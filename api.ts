@@ -45,9 +45,6 @@ const api: IAPI = {
       },
 
       description: 'Get information about your site.',
-      extras: [
-        { type: 'info', data: 'This endpoint requires the the `token` cookie to be set to a valid Nekoweb token.'}
-      ],
       tags: [],
 
       examples: [
