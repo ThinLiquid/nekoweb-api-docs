@@ -26,7 +26,9 @@ export const types = {
     "big_uploads": { "limit": number, "remaining": number, "reset": number },
     "zip": { "limit": number, "remaining": number, "reset": number }
   }`,
-  FileCreated: 'File created'
+  FileCreated: 'File created',
+  FileFolderDeleted: 'File/folder deleted',
+  FileFolderRenamed: 'File/folder renamed'
 }
 
 const api: IAPI = {
@@ -71,7 +73,7 @@ const api: IAPI = {
       },
       parameters: {
         pathname: { type: 'string', required: true, description: 'The path to the file or folder.' },
-        isFolder: { type: 'boolean', required: true, description: 'Whether the file is a folder or not.' }
+        isFolder: { type: 'boolean', required: false, description: 'Whether the file is a folder or not.' }
       },
 
       description: 'Create a new file or folder.',
@@ -109,7 +111,11 @@ const api: IAPI = {
       },
 
       description: 'Delete a file or folder.',
-      tags: ['general']
+      tags: ['general'],
+
+      output: {
+        200: 'FileFolderDeleted'
+      }
     },
     {
       path: '/files/rename',
@@ -123,7 +129,11 @@ const api: IAPI = {
       },
 
       description: 'Rename/move a file or folder.',
-      tags: ['general']
+      tags: ['general'],
+
+      output: {
+        200: 'FileFolderRenamed'
+      }
     },
     {
       path: '/files/edit',
