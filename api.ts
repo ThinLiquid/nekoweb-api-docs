@@ -70,7 +70,7 @@ const api: IAPI = {
       methods: ['GET'],
       headers: {
         'Authorization': ' (optional) Your API key from [Nekoweb](https://nekoweb.org/api)'
-      }
+      },
 
       description: 'Get information about a user\'s site.',
       extras: [
