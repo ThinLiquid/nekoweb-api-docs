@@ -52,7 +52,7 @@ const createEndpoint = (endpoint: IEndpoint) => `
   ${endpoint.headers ? `<h3>Headers</h3>` : ''}
   ${Object.entries(endpoint.headers ?? {}).map(([key, value]) => `
     <div class="header">
-      <code class="key">${key}</code>: <span class="value">${value}</span>
+      <code class="key">${key}</code>: <span class="value">${marked.parseInline(value)}</span>
     </div>
   `).join('')}
 
