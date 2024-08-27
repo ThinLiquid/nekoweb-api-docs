@@ -42,7 +42,7 @@ const api: IAPI = {
       extras: [
         { type: 'info', data: 'This endpoint requires the the `token` cookie to be set to a valid Nekoweb token.'}
       ],
-      tags: [],
+      tags: ['rate_limited'],
 
       output: {
         200: 'SiteInfo'
@@ -56,7 +56,7 @@ const api: IAPI = {
       extras: [
         { type: 'info', data: 'This endpoint doesn\'t require auth if requested from a Nekoweb site.' }
       ],
-      tags: [],
+      tags: ['rate_limited'],
 
       output: {
         200: 'SiteInfo'
@@ -74,7 +74,7 @@ const api: IAPI = {
       },
 
       description: 'Create a new file or folder.',
-      tags: ['general']
+      tags: ['rate_limited', 'general']
     },
     {
       path: '/files/upload',
@@ -91,7 +91,7 @@ const api: IAPI = {
         { type: 'info', data: 'This will overwrite old files. Max 100MB.' }
       ],
 
-      tags: ['general']
+      tags: ['rate_limited', 'general']
     },
     {
       path: '/files/delete',
@@ -104,7 +104,7 @@ const api: IAPI = {
       },
 
       description: 'Delete a file or folder.',
-      tags: ['general']
+      tags: ['rate_limited', 'general']
     },
     {
       path: '/files/rename',
@@ -118,7 +118,7 @@ const api: IAPI = {
       },
 
       description: 'Rename/move a file or folder.',
-      tags: ['general']
+      tags: ['rate_limited', 'general']
     },
     {
       path: '/files/edit',
@@ -133,7 +133,7 @@ const api: IAPI = {
 
       description: 'Edit a file.',
 
-      tags: ['general']
+      tags: ['rate_limited', 'general']
     },
     {
       path: '/files/readfolder',
@@ -143,7 +143,7 @@ const api: IAPI = {
       },
 
       description: 'Read a folder.',
-      tags: ['general'],
+      tags: ['rate_limited', 'general'],
 
       examples: [
         {
@@ -161,7 +161,7 @@ const api: IAPI = {
       methods: ['GET'],
 
       description: 'Create upload for a big file. Allows you to upload files larger than 100MB.',
-      tags: ['big_uploads'],
+      tags: ['rate_limited', 'big_uploads'],
 
       examples: [
         {
@@ -189,7 +189,7 @@ const api: IAPI = {
       extras: [
         { type: 'info', data: 'Chunk must be less than 100MB.' }
       ],
-      tags: ['big_uploads']
+      tags: ['rate_limited', 'big_uploads']
     },
     {
       path: '/files/big/move',
@@ -203,14 +203,14 @@ const api: IAPI = {
       },
 
       description: 'Move a big file upload to the final location.',
-      tags: ['big_uploads']
+      tags: ['rate_limited', 'big_uploads']
     },
     {
       path: '/files/import/:bigid',
       methods: ['POST'],
 
       description: 'Import a big file upload to the final location.',
-      tags: ['big_uploads', 'zip']
+      tags: ['rate_limited', 'big_uploads', 'zip']
     },
     {
       path: '/files/limits',
