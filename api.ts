@@ -41,7 +41,7 @@ const api: IAPI = {
       path: '/site/info',
       methods: ['GET'],
       headers: {
-        Cookie: 'token=xxxxxxxxxxxxxxxxxxxxxx (get your token [here](https://deploy.nekoweb.org/#getting-your-cookie))'
+        Authorization: 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
 
       description: 'Get information about your site.',
@@ -56,7 +56,7 @@ const api: IAPI = {
           code: dedent`
             const res = await fetch('https://nekoweb.org/api/site/info', {
               headers: {
-                Cookie: 'token=xxxxxxxxxxxxxxxxxxxxxx'
+                Authorization: 'xxxxxxxxxxxxxxxxxx'
               }
             })
             console.log(await res.json())
