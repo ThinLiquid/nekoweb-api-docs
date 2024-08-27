@@ -40,6 +40,9 @@ const api: IAPI = {
     {
       path: '/site/info',
       methods: ['GET'],
+      headers: {
+        Cookie: 'token=xxxxxxxxxxxxxxxxxxxxxx (get your token [here](https://deploy.nekoweb.org/#getting-your-cookie))'
+      },
 
       description: 'Get information about your site.',
       extras: [
