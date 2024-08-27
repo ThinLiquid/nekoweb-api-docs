@@ -288,7 +288,7 @@ const api: IAPI = {
       extras: [
         { type: 'info', data: 'Chunk must be less than 100MB.' }
       ],
-      tags: ['rate_limited', 'big_uploads']
+      tags: ['rate_limited', 'general']
     },
     {
       path: '/files/big/move',
@@ -303,7 +303,7 @@ const api: IAPI = {
       },
 
       description: 'Move a big file upload to the final location.',
-      tags: ['rate_limited', 'big_uploads']
+      tags: ['rate_limited', 'general']
     },
     {
       path: '/files/import/:bigid',
@@ -313,7 +313,7 @@ const api: IAPI = {
       },
 
       description: 'Import a big file upload to the final location.',
-      tags: ['rate_limited', 'big_uploads', 'zip']
+      tags: ['rate_limited', 'zip']
     },
     {
       path: '/files/limits',
