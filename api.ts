@@ -47,6 +47,13 @@ const api: IAPI = {
       ],
       tags: [],
 
+      examples: [
+        {
+          language: 'JavaScript',
+          code: `const res = await fetch('https://nekoweb.org/api/site/info')\nconsole.log(await res.json())`
+        }
+      ],
+
       output: {
         200: 'SiteInfo'
       }
@@ -57,9 +64,16 @@ const api: IAPI = {
 
       description: 'Get information about a user\'s site.',
       extras: [
-        { type: 'info', data: 'This endpoint doesn\'t require auth if requested from a Nekoweb site.' }
+        { type: 'info', data: 'This endpoint doesn\'t require the `Authorization` header if requested from a Nekoweb site.' }
       ],
       tags: [],
+
+      examples: [
+        {
+          language: 'JavaScript',
+          code: `const res = await fetch('https://nekoweb.org/api/site/info/thnlqd')\nconsole.log(await res.json())`
+        }
+      ],
 
       output: {
         200: 'SiteInfo'
@@ -78,6 +92,22 @@ const api: IAPI = {
 
       description: 'Create a new file or folder.',
       tags: ['general'],
+
+      examples: [
+        {
+          language: 'JavaScript',
+          code: dedent`
+            await fetch('https://nekoweb.org/api/files/create', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: 'xxxxxxxxxxxxxxxxxx'
+              },
+              body: 'pathname=/hello-world.txt&isFolder=false'
+            })
+          `
+        }
+      ],
 
       output: {
         200: 'FileCreated'
@@ -113,6 +143,22 @@ const api: IAPI = {
       description: 'Delete a file or folder.',
       tags: ['general'],
 
+      examples: [
+        {
+          language: 'JavaScript',
+          code: dedent`
+            await fetch('https://nekoweb.org/api/files/delete', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: 'xxxxxxxxxxxxxxxxxx'
+              },
+              body: 'pathname=/hello-world.txt'
+            })
+          `
+        }
+      ],
+
       output: {
         200: 'FileFolderDeleted'
       }
@@ -130,6 +176,22 @@ const api: IAPI = {
 
       description: 'Rename/move a file or folder.',
       tags: ['general'],
+
+      examples: [
+        {
+          language: 'JavaScript',
+          code: dedent`
+            await fetch('https://nekoweb.org/api/files/rename', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                Authorization: 'xxxxxxxxxxxxxxxxxx'
+              },
+              body: 'pathname=/hello-world.txt&newpathname=/goodbye-world.txt'
+            })
+          `
+        }
+      ],
 
       output: {
         200: 'FileFolderRenamed'
