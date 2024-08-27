@@ -34,7 +34,7 @@ export const types = {
 const api: IAPI = {
   info: {
     title: 'Nekoweb API',
-    description: 'API for Nekoweb\ncontribute [here](https://github.com/ThinLiquid/nekoweb-api)!'
+    description: 'Unofficial Nekoweb API documentation!\nYou can contribute [here](https://github.com/ThinLiquid/nekoweb-api)!'
   },
   endpoints: [
     {
@@ -50,7 +50,14 @@ const api: IAPI = {
       examples: [
         {
           language: 'JavaScript',
-          code: `const res = await fetch('https://nekoweb.org/api/site/info')\nconsole.log(await res.json())`
+          code: dedent`
+            const res = await fetch('https://nekoweb.org/api/site/info', {
+              headers: {
+                Cookie: 'token=xxxxxxxxxxxxxxxxxxxxxx'
+              }
+            })
+            console.log(await res.json())
+          `
         }
       ],
 
@@ -61,6 +68,9 @@ const api: IAPI = {
     {
       path: '/site/info/:username',
       methods: ['GET'],
+      headers: {
+        'Authorization': ' (optional) Your API key from [Nekoweb](https://nekoweb.org/api)'
+      }
 
       description: 'Get information about a user\'s site.',
       extras: [
@@ -83,7 +93,8 @@ const api: IAPI = {
       path: '/files/create',
       methods: ['POST'],
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
       parameters: {
         pathname: { type: 'string', required: true, description: 'The path to the file or folder.' },
@@ -117,7 +128,8 @@ const api: IAPI = {
       path: '/files/upload',
       methods: ['POST'],
       headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
       parameters: {
         pathname: { type: 'string', required: true, description: 'The path of the folder to upload to.' }
@@ -134,7 +146,8 @@ const api: IAPI = {
       path: '/files/delete',
       methods: ['POST'],
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
       parameters: {
         pathname: { type: 'string', required: true, description: 'The path to the file or folder to delete.' }
@@ -167,7 +180,8 @@ const api: IAPI = {
       path: '/files/rename',
       methods: ['POST'],
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
       parameters: {
         pathname: { type: 'string', required: true, description: 'The old path of the file or folder.' },
@@ -201,7 +215,8 @@ const api: IAPI = {
       path: '/files/edit',
       methods: ['POST'],
       headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
       parameters: {
         pathname: { type: 'string', required: true, description: 'The path to the file to edit.' },
@@ -215,6 +230,10 @@ const api: IAPI = {
     {
       path: '/files/readfolder',
       methods: ['GET'],
+      headers: {
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
+      },
       parameters: {
         pathname: { type: 'string', required: true, description: 'The path to the folder to read.' }
       },
@@ -236,6 +255,9 @@ const api: IAPI = {
     {
       path: '/files/big/create',
       methods: ['GET'],
+      headers: {
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
+      },
 
       description: 'Create upload for a big file. Allows you to upload files larger than 100MB.',
       tags: ['big_uploads'],
@@ -255,7 +277,8 @@ const api: IAPI = {
       path: '/files/big/append',
       methods: ['POST'],
       headers: {
-        'Content-Type': 'multipart/form-data'
+        'Content-Type': 'multipart/form-data',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
       parameters: {
         id: { type: 'string', required: true, description: 'The ID of the big file upload.' },
@@ -272,7 +295,8 @@ const api: IAPI = {
       path: '/files/big/move',
       methods: ['POST'],
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
       parameters: {
         id: { type: 'string', required: true, description: 'The ID of the big file upload.' },
@@ -285,6 +309,9 @@ const api: IAPI = {
     {
       path: '/files/import/:bigid',
       methods: ['POST'],
+      headers: {
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
+      },
 
       description: 'Import a big file upload to the final location.',
       tags: ['big_uploads', 'zip']
@@ -292,6 +319,9 @@ const api: IAPI = {
     {
       path: '/files/limits',
       methods: ['GET'],
+      headers: {
+        'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
+      },
 
       description: 'Returns a JSON object with info about status of various rate limits for your account.',
       extras: [
