@@ -25,7 +25,8 @@ export const types = {
     "general": { "limit": number, "remaining": number, "reset": number },
     "big_uploads": { "limit": number, "remaining": number, "reset": number },
     "zip": { "limit": number, "remaining": number, "reset": number }
-  }`
+  }`,
+  FileCreated: 'File created'
 }
 
 const api: IAPI = {
@@ -74,7 +75,11 @@ const api: IAPI = {
       },
 
       description: 'Create a new file or folder.',
-      tags: ['general']
+      tags: ['general'],
+
+      output: {
+        200: 'FileCreated'
+      }
     },
     {
       path: '/files/upload',
