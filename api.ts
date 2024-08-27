@@ -258,7 +258,10 @@ const api: IAPI = {
         'Authorization': 'Your API key from [Nekoweb](https://nekoweb.org/api)'
       },
 
-      description: 'Create upload for a big file. Allows you to upload files larger than 100MB.',
+      description: 'Create upload for a big file.',
+      extras: [
+        { type: 'info', data: 'This endpoint allows you to upload files larger than 100MB.' }
+      ],
       tags: ['rate_limited', 'big_uploads'],
 
       examples: [
