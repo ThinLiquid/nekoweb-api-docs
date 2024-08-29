@@ -34,7 +34,7 @@ export const types = {
 const api: IAPI = {
   info: {
     title: 'Nekoweb API',
-    description: 'Unofficial Nekoweb API documentation!\nYou can contribute [here](https://github.com/ThinLiquid/nekoweb-api)!'
+    description: 'Unofficial Nekoweb API documentation!\nYou can contribute [here](https://github.com/ThinLiquid/nekoweb-api)!\n\nMade by [ThinLiquid](https://thinliquid.dev)'
   },
   endpoints: [
     {
